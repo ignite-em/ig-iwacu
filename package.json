@@ -1,0 +1,44 @@
+{
+  "name": "Ignite'Em",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ignite-em/ig-iwacu.git",
+  "author": "Luc Abayo <luc.bayo@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon --exec babel-node src",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.4",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
+    "superagent": "^5.1.0",
+    "supertest": "^4.0.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
