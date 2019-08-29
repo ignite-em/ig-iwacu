@@ -1,5 +1,6 @@
 import express from 'express';
 
+const {NODE_ENV, PORT} = process.env
 const app = express();
 
 app.use(express.json());
@@ -10,10 +11,10 @@ app.use((_req, res) =>
   res.status(404).json({ error: { message: 'Router not found' } })
 );
 
-if (process.env.NODE_ENV === 'development') {
-  const PORT = process.env.PORT || 3000;
+if (NODE_ENV !== 'test') {
+  const port = PORT || 3000;
   app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+    console.log(`Listening on port ${port}`);
   });
 }
 
